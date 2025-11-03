@@ -1,0 +1,20 @@
+# Python / Django
+*.pyc
+__pycache__/
+.venv/
+*.sqlite3
+db.sqlite3
+
+# Node / Vite
+node_modules/
+dist/
+.env
+.env.*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
