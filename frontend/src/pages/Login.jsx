@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
 
 function Login() {
   // states para guardar o usuario e senha
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   // function chamada ao enviar o formulario
   const handleSubmit = async (e) => {
@@ -24,9 +26,8 @@ function Login() {
       localStorage.setItem('refresh_token', refresh);
 
       console.log('Login com sucesso!', response.data);
-      alert('Login realizado com sucesso!');
-
-      // TODO: Redirecionar para o Dashboard
+  
+      navigate('/dashboard');
 
     } catch (err) {
       console.error('Erro no login:', err);
