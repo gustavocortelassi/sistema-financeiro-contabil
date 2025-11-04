@@ -22,3 +22,14 @@ api.interceptors.request.use(
         return Promise.reject(error);
     }
 )
+
+export const fetchCurrentUser = async () => {
+  try {
+    // O interceptor (PROJ-06) vai adicionar o token automaticamente!
+    const response = await api.get('/users/me/'); 
+    console.log('Dados do Usuário (PROJ-08):', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao buscar dados do usuário:', error);
+  }
+};
