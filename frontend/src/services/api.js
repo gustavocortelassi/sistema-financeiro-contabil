@@ -29,4 +29,41 @@ export const fetchCurrentUser = async () => {
   }
 };
 
+export const getEmpresas = async () => {
+  try {
+    const response = await api.get('/empresas/');
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar empresas:", error);
+    throw error;
+  }
+};
+
+/**
+ * Cria uma nova empresa.
+ * @param {object} empresaData - { nome_razao_social, cpf_cnpj }
+ */
+export const createEmpresa = async (empresaData) => {
+  try {
+    const response = await api.post('/empresas/', empresaData);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao criar empresa:", error);
+    throw error;
+  }
+};
+
+/**
+ * Deleta uma empresa.
+ * @param {number} id - O ID da empresa a ser deletada
+ */
+export const deleteEmpresa = async (id) => {
+  try {
+    await api.delete(`/empresas/${id}/`);
+  } catch (error) {
+    console.error("Erro ao deletar empresa:", error);
+    throw error;
+  }
+};
+
 export default api;

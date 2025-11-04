@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'mptt',
     'corsheaders',
     'users',
+    'empresas',
 ]
 
 MIDDLEWARE = [
